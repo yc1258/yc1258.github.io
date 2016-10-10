@@ -116,7 +116,7 @@
 </ol>
 
 <h1>
-<a id="网络编程" class="anchor" href="#%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>网络编程</h1>
+<a id="unix网络编程" class="anchor" href="#unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unix网络编程</h1>
 
 <ol>
 <li> OSI模型由下至上分别是物理层、数据链路层、网络层（IP）、传输层（TCP/UDP）、会话层表示层应用层（统称为应用层）。</li>
@@ -328,7 +328,8 @@
 
 <ol>
 <li> 字节对齐是对每个成员的起始地址的要求，比如double必须起始地址是8的倍数，一个内部最长成员为int的结构体起始地址是4的倍数。</li>
-<li> <img src="../images/csapp2.png" alt="csapp2.png">sizeof(AA)为8，BB为12，CC为16。如果CC占用8字节内存，同样的AA，BB都是8字节的内存，这样的话，如果把一个指向AA实例的指针赋给一个指向CC实例的指针，那么就会把AA中的8字节直接盖到CC的8字节上，结果CC实例中的b，c都被赋上了不是我们想要的值，这很可能会导致你的程序出问题。父类的data member会在子类的实例中有完整的一份，这样在有继承关系的类之间进行类型转换，就只用简单的修改指针的指向。</li>
+<li> sizeof(AA)为8，BB为12，CC为16。如果CC占用8字节内存，同样的AA，BB都是8字节的内存，这样的话，如果把一个指向AA实例的指针赋给一个指向CC实例的指针，那么就会把AA中的8字节直接盖到CC的8字节上，结果CC实例中的b，c都被赋上了不是我们想要的值，这很可能会导致你的程序出问题。父类的data member会在子类的实例中有完整的一份，这样在有继承关系的类之间进行类型转换，就只用简单的修改指针的指向。<img src="../images/csapp2.png" alt="csapp2.png">
+</li>
 <li> 预防字符串缓冲区攻击的方法，栈地址随机化（每次程序开始都先分配一段空地址以改变后续地址），栈破坏检测（通过判断哨兵值是否被程序改变），限制可执行代码区域（只有保存着编译器产生的代码的那部分存储器是可执行的）。</li>
 <li> Code Motion（代码移动）优化，对于循环内的函数调用（包括循环条件），最好放在循环外完成赋值给一个变量，用变量去循环。这样只需调用一次，否则每次循环都会调用一次。</li>
 <li> 消除不必要存储器引用优化，对于循环内下次读的是这次写的指针引用值的情况，可以用一个临时变量存储每次的值，在循环结束后再一次写入对应指针引用内。<img src="../images/csapp5-1.png" alt="csapp5-1.png"><img src="../images/csapp5-2.png" alt="csapp5-2.png">

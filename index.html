@@ -371,6 +371,10 @@
 <li>类的特殊方法（定制类）包括：<strong>str</strong>()可定制调用print方法打印对象时的输出；<strong>iter</strong>()返回迭代对象以使得实例对象可以用于for…in循环；<strong>getitem</strong>()中实现对象可以使用下标方式取值，如list、dict；<strong>getattr</strong>()中处理调用类中原本不存在的变量时的情况；<strong>call</strong>()中实现直接调用对象实例本身时的情况。</li>
 <li>装饰器<a href="https://github.com/property" class="user-mention">@property</a>生成getter方法，<a href="https://github.com/xxx" class="user-mention">@xxx</a>.setter生成xxx属性的setter方法。</li>
 <li>使用with语句可以在调用open()打开文件后进行IO操作时不需要手动调用close()。</li>
+<li>正则表达式语法<img src="../images/py20.png" alt="py20.png">
+</li>
+<li>Python里正则表达式的数量词默认是贪婪的，总是尝试匹配尽可能多的字符；非贪婪的则相反，总是尝试匹配尽可能少的字符。例如：正则表达式”ab<em>”如果用于查找”abbbc”，将找到”abbb”。而如果使用非贪婪的数量词”ab</em>?”，将找到”a”。</li>
+<li>正则表达式里使用”\”作为转义字符，这就可能造成反斜杠困扰。假如你需要匹配文本中的字符”\”，那么使用编程语言表示的正则表达式里将需要4个反斜杠”\\”：前两个和后两个分别用于在编程语言里转义成反斜杠，转换成两个反斜杠后再在正则表达式里转义成一个反斜杠。Python里的原生字符串很好地解决了这个问题，这个例子中的正则表达式可以使用r”\”表示。同样，匹配一个数字的”\d”可以写成r”\d”。</li>
 </ol>
 
 <h1>
